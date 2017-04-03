@@ -442,7 +442,7 @@ int main(int argc, char **argv){
 			printf("Insira a paridade: ");
 			scanf(" %i", &pacote.paridade);
 			if(pacote.paridade != 1 && pacote.paridade != 0){
-				printf("Paridade invalida (1 ou 2).\n");
+				printf("Paridade invalida (1 ou 0).\n");
 				continue;
 			}
 			int aux;
