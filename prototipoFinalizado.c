@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "trp.h"
-#define tamPacote 69
+#define TAMPACOTE 69
 
 int checaFlag(Pacote pacote){
 	if(pacote.inicioTermino != 0 && pacote.inicioTermino != 2 && pacote.inicioTermino != 3){
@@ -14,7 +14,7 @@ int checaFlag(Pacote pacote){
 int checaParidade(char *binario){
     int i;
     int soma = 0;
-    for(i = 0; i <= tamPacote; i++){
+    for(i = 0; i <= TAMPACOTE; i++){
         if(binario[i] == '1')
             soma++;
     }
@@ -64,7 +64,7 @@ int binarioDecimal(char *binario){
 
 Pacote binarioPacote(char *binario){
     Pacote pacote;
-    if(strlen(binario) != tamPacote){
+    if(strlen(binario) != TAMPACOTE){
         pacote.paridade = -1;
         return pacote;
     }
@@ -360,7 +360,7 @@ int main(int argc, char **argv){
             printf("Arquivo não existente.\n");
             return 1;
         }
-        while(fgets(binario, tamPacote+1, arq) != NULL){
+        while(fgets(binario, TAMPACOTE+1, arq) != NULL){
             int aux;
             pacote = binarioPacote(binario);
             if(pacote.paridade != -1){
@@ -442,7 +442,7 @@ int main(int argc, char **argv){
 			printf("Insira a paridade: ");
 			scanf(" %i", &pacote.paridade);
 			if(pacote.paridade != 1 && pacote.paridade != 0){
-				printf("Paridade invalida (1 ou 0).\n");
+				printf("Paridade invalida (1 ou 2).\n");
 				continue;
 			}
 			int aux;
