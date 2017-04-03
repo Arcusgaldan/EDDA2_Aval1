@@ -140,204 +140,72 @@ Pacote binarioPacote(char *binario){
     return pacote;
 }
 
+char *intBinario(int num, int tam){
+	if(num < 0){
+        return NULL;
+    }
+	char *aux = malloc((tam+1) * sizeof(char));
+	int i;
+	aux[tam] = '\0';
+	for(i = tam-1; num >= 2; i--){
+        if(i == 0){
+            return NULL;
+        }
+        aux[i] = (num % 2) + 48;
+        num /= 2;
+    }
+    aux[i] = num + 48;
+    i--;
+    while(i >= 0){
+        aux[i] = 48;
+        i--;
+    }
+}
+
 char *pacoteBinario(Pacote pacote){
-    int num = pacote.idMensagem, i, tam;
+    int num, i, tam;
     char *binario = malloc(70 * sizeof(char));
-    char *aux = malloc(sizeof(char));
+    char *aux;
     binario = strcpy(binario, "");
-
-    if(num < 0){
-        return NULL;
-    }
+	
+	num = pacote.idMensagem;
     tam = 8;
-    aux = realloc(aux, (tam+1) * sizeof(char));
-    aux[tam] = '\0';
-    for(i = tam-1; num >= 2; i--){
-        if(i == 0){
-            return NULL;
-        }
-        aux[i] = (num % 2) + 48;
-        num /= 2;
-    }
-    aux[i] = num + 48;
-    i--;
-    while(i >= 0){
-        aux[i] = 48;
-        i--;
-    }
-
+	aux = intBinario(num, tam);
     binario = strcat(binario, aux);
-    num = pacote.idPacote;
-
-    if(num < 0){
-        return NULL;
-    }
-    aux[tam] = '\0';
-    for(i = tam-1; num >= 2; i--){
-        if(i == 0){
-            return NULL;
-        }
-        aux[i] = (num % 2) + 48;
-        num /= 2;
-    }
-    aux[i] = num + 48;
-    i--;
-    while(i >= 0){
-        aux[i] = 48;
-        i--;
-    }
-
+    
+	num = pacote.idPacote;
+    aux = intBinario(num, tam);
     binario = strcat(binario, aux);
-    num = pacote.remetente;
-
-    if(num < 0){
-        return NULL;
-    }
+    
+	num = pacote.remetente;
     tam = 9;
-    aux = realloc(aux, (tam+1) * sizeof(char));
-    aux[tam] = '\0';
-    for(i = tam-1; num >= 2; i--){
-        if(i == 0){
-            return NULL;
-        }
-        aux[i] = (num % 2) + 48;
-        num /= 2;
-    }
-    aux[i] = num + 48;
-    i--;
-    while(i >= 0){
-        aux[i] = 48;
-        i--;
-    }
-
+    aux = intBinario(num, tam);
     binario = strcat(binario, aux);
-    num = pacote.destinatario;
-
-    if(num < 0){
-        return NULL;
-    }
-    aux[tam] = '\0';
-    for(i = tam-1; num >= 2; i--){
-        if(i == 0){
-            return NULL;
-        }
-        aux[i] = (num % 2) + 48;
-        num /= 2;
-    }
-    aux[i] = num + 48;
-    i--;
-    while(i >= 0){
-        aux[i] = 48;
-        i--;
-    }
-
+    
+	num = pacote.destinatario;
+    aux = intBinario(num, tam);
     binario = strcat(binario, aux);
-    num = pacote.inicioTermino;
-
-    if(num < 0){
-        return NULL;
-    }
+    
+	num = pacote.inicioTermino;
     tam = 2;
-    aux = realloc(aux, (tam+1) * sizeof(char));
-    aux[tam] = '\0';
-    for(i = tam-1; num >= 2; i--){
-        if(i == 0){
-            return NULL;
-        }
-        aux[i] = (num % 2) + 48;
-        num /= 2;
-    }
-    aux[i] = num + 48;
-    i--;
-    while(i >= 0){
-        aux[i] = 48;
-        i--;
-    }
-
+    aux = intBinario(num, tam);
     binario = strcat(binario, aux);
-    num = pacote.dados[0];
-
-    if(num < 0){
-        return NULL;
-    }
+    
+	num = pacote.dados[0];
     tam = 8;
-    aux = realloc(aux, (tam+1) * sizeof(char));
-    aux[tam] = '\0';
-    for(i = tam-1; num >= 2; i--){
-        if(i == 0){
-            return NULL;
-        }
-        aux[i] = (num % 2) + 48;
-        num /= 2;
-    }
-    aux[i] = num + 48;
-    i--;
-    while(i >= 0){
-        aux[i] = 48;
-        i--;
-    }
-
+    aux = intBinario(num, tam);
     binario = strcat(binario, aux);
-    num = pacote.dados[1];
-
-    if(num < 0){
-        return NULL;
-    }
-    aux[tam] = '\0';
-    for(i = tam-1; num >= 2; i--){
-        if(i == 0){
-            return NULL;
-        }
-        aux[i] = (num % 2) + 48;
-        num /= 2;
-    }
-    aux[i] = num + 48;
-    i--;
-    while(i >= 0){
-        aux[i] = 48;
-        i--;
-    }
+    
+	num = pacote.dados[1];
+    aux = intBinario(num, tam);
     binario = strcat(binario, aux);
-    num = pacote.dados[2];
-
-    if(num < 0){
-        return NULL;
-    }
-    aux[tam] = '\0';
-    for(i = tam-1; num >= 2; i--){
-        if(i == 0){
-            return NULL;
-        }
-        aux[i] = (num % 2) + 48;
-        num /= 2;
-    }
-    aux[i] = num + 48;
-    i--;
-    while(i >= 0){
-        aux[i] = 48;
-        i--;
-    }
+    
+	num = pacote.dados[2];
+    aux = intBinario(num, tam);
     binario = strcat(binario, aux);
-    num = pacote.dados[3];
-
-    if(num < 0){
-        return NULL;
-    }
-    aux[tam] = '\0';
-    for(i = tam-1; num >= 2; i--){
-        if(i == 0){
-            return NULL;
-        }
-        aux[i] = (num % 2) + 48;
-        num /= 2;
-    }
-    aux[i] = num + 48;
-    i--;
-    while(i >= 0){
-        aux[i] = 48;
-        i--;
-    }
-
+    
+	num = pacote.dados[3];
+    aux = intBinario(num, tam);
     binario = strcat(binario, aux);
 
     if(pacote.paridade == 1){
